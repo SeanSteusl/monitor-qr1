@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Uhh is this yours?</title>
-  <script>
-    // Try to reach your internal service
-    fetch("http://openmediavault:8086/", { mode: "no-cors" })
-      .then(() => {
-        window.location.href = "http://openmediavault:8086/";
-      })
-      .catch(() => {
-        document.body.innerHTML = `
-          <h1>Didn't thinks so, get outtaa hereee</h1>
-          <p>🤨🤨🤨</p>
-        `;
-      });
-  </script>
+<title>Uhh is this yours?</title>
 </head>
+
 <body>
-  <p>Checking access...</p>
+<h1>🤨 Checking credentials...</h1>
+
+<script>
+const target = "https://openmediavault:8086";
+
+fetch(target, {mode:"no-cors"})
+.then(() => {
+    window.location.href = target;
+})
+.catch(() => {
+    document.body.innerHTML = `
+    <h1>🚫 Nice try.</h1>
+    <p>This QR code belongs to a private Tailnet.</p>
+    <p>Access denied 🤨</p>
+    `;
+});
+</script>
+
 </body>
+</html>
