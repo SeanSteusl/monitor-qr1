@@ -5,7 +5,7 @@
 </head>
 
 <body>
-<h1>🤨 Checking credentials...</h1>
+<h1>Checking credentials...</h1>
 
 <script>
 const target = "https://openmediavault:8086";
@@ -17,8 +17,7 @@ fetch(target, {mode:"no-cors"})
 .catch(() => {
     document.body.innerHTML = `
     <h1>🚫 Nice try.</h1>
-    <p>This QR code belongs to a private Tailnet.</p>
-    <p>Access denied 🤨</p>
+    <p>Kick rocks buddy 🤨</p>
     `;
 });
 </script>
