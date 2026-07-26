@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Uhh is this yours?</title>
+<title>Erm is this yours?</title>
 </head>
 
 <body>
@@ -10,15 +10,25 @@
 <script>
 const target = "https://openmediavault:8086";
 
-fetch(target, {mode:"no-cors"})
-.then(() => {
+fetch(target, {
+  method: "HEAD",
+  mode: "cors",
+  credentials: "include"
+})
+.then(response => {
+  if (response.ok || response.status === 405) {
+    // 405 means the server doesn't allow HEAD, but you reached it
     window.location.href = target;
+  } else {
+    throw new Error(`Status ${response.status}`);
+  }
 })
 .catch(() => {
-    document.body.innerHTML = `
-    <h1>🚫 Nice try.</h1>
-    <p>Kick rocks buddy 🤨</p>
-    `;
+  document.body.innerHTML = `
+  <h1>Yeah Didn't think so! 🤨</h1>
+  <p>This is Sean's. Kick rocks pal!</p>
+  <p>Access denied</p>
+  `;
 });
 </script>
 
