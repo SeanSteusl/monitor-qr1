@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uhh is this yours?</title>
+  <script>
+    // Try to reach your internal service
+    fetch("http://openmediavault:8086/", { mode: "no-cors" })
+      .then(() => {
+        window.location.href = "http://openmediavault:8086/";
+      })
+      .catch(() => {
+        document.body.innerHTML = `
+          <h1>Didn't thinks so, get outtaa hereee</h1>
+          <p>🤨🤨🤨</p>
+        `;
+      });
+  </script>
+</head>
+<body>
+  <p>Checking access...</p>
+</body>
