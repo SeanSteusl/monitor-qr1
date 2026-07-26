@@ -11,17 +11,12 @@
 const target = "https://openmediavault.tailfbb7bc.ts.net/homepage";
 
 fetch(target, {
-  method: "HEAD",
-  mode: "no-cors",
+  method: "GET",
+  mode: "cors",
   credentials: "include"
 })
 .then(response => {
-  if (response.ok || response.status === 405) {
-    // 405 means the server doesn't allow HEAD, but you reached it
-    window.location.href = target;
-  } else {
-    throw new Error(`Status ${response.status}`);
-  }
+  window.location.href = target;
 })
 .catch(() => {
   document.body.innerHTML = `
